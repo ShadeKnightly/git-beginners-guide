@@ -181,7 +181,7 @@ Then you can use commands like:
 
 
 ## Quick Reference Summary
-#Action                                         Command
+# Action                                         Command
 Clone a repo	                                  git clone <url>
 Create a branch	                                git checkout -b <branch>
 Switch branch	                                  git checkout <branch>

@@ -115,6 +115,7 @@ If the branch still exists remotely:
 
 
 ## ========= COMPLETE WORKFLOW SUMMARY =======
+
 # 1. Sync main
 git checkout main
 git pull origin main
@@ -146,7 +147,7 @@ git push origin --delete feature/branch-name
 
 
 
-=============================================================================================================
+===================================================================
 
 ****Tips for Smooth Collaboration****
 
@@ -161,7 +162,7 @@ git push origin --delete feature/branch-name
 ## Communicate: let others know when you’re merging or rebasing.
 
 
-============================================================================================================
+======================================================================
 
 
 Optional: Rebasing Instead of Merging

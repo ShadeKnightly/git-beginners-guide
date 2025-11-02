@@ -1,7 +1,7 @@
 
 # Git Quick Guide
 
-A short and simple reference for everyday Git commands.  
+A reference for everyday Git commands.  
 For new developers learning to work with branches, commits, and pull requests.
 
 ---
@@ -13,39 +13,48 @@ Clone a repository from GitHub to your computer:
     git clone htps://github.com/your-username/project-name.git
     cd project-name
 
+
 Check what branch you’re on:
 
     git branch
+
 
 List all remote branches:
 
     git branch -r
 
-#Keeping Up to Date
+
+# Keeping Up to Date
+
 Always make sure you have the latest version of the code:
 
     git fetch origin
     git pull origin main
+
     
-#Branching
+# Branching
 
 Create a new branch:
 
     git checkout -b feature/branch-name
 
+
 Switch to an existing branch:
 
     git checkout branch-name
+
 
 Delete a branch (locally):
 
     git branch -d branch-name
 
+
 Delete a remote branch:
 
     git push origin --delete branch-name
 
-#Working with Changes
+
+# Working with Changes
 
 Check what’s changed:
 
@@ -76,6 +85,7 @@ Discard local changes (careful!):
 
     git checkout -- <file>
 
+
 #Syncing with Remote
 
 Push your branch to GitHub:
@@ -87,7 +97,8 @@ Pull the latest updates for your current branch:
 
     git pull
 
-#Merging
+
+# Merging
 
 Switch to main, make sure it’s up to date, then merge another branch:
 
@@ -100,6 +111,7 @@ If everything looks good, commit and push:
 
     git push origin main
 
+
 #Checking Merge Compatibility (Dry Run)
 
 Test if a branch can merge cleanly without making changes:
@@ -108,7 +120,8 @@ Test if a branch can merge cleanly without making changes:
     git merge --no-commit --no-ff feature/branch-name
     git merge --abort
 
-#Logs and History
+
+# Logs and History
 
 View commit history:
 
@@ -124,7 +137,8 @@ Show the last commit:
 
     git show
 
-#Fixing Common Mistakes
+
+# Fixing Common Mistakes
 
 Undo your last commit but keep changes:
 
@@ -140,11 +154,13 @@ Undo local changes (restore file to last commit):
 
     git checkout -- filename
 
-#Clean Up
+
+# Clean Up
 
 Remove untracked files and folders (use carefully):
 
     git clean -fd
+
 
 #Helpful Aliases (Optional)
 
@@ -163,7 +179,8 @@ Then you can use commands like:
     git cm -m "message"
     git st
 
-##Quick Reference Summary
+
+## Quick Reference Summary
 #Action                                         Command
 Clone a repo	                                  git clone <url>
 Create a branch	                                git checkout -b <branch>
@@ -177,6 +194,6 @@ See history	                                    git log --oneline
 Undo last commit	                              git reset --soft HEAD~1
 
 
-#Recommended next read:
+# Recommended next read:
 Git Workflow for Team Projects
   

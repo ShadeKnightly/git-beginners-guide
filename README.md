@@ -3,6 +3,7 @@
 A reference guide for developers learning to use Git in team environments.
 
 This repository includes:
+- **Git-terms-Explained.md** - understand what different git terms really mean
 - **Git-Quick-Guide.md** – Everyday Git commands
 - **Git-Workflow.md** – Team workflow and branch management
 
@@ -23,9 +24,9 @@ It’s open for anyone to read, fork, or adapt for their own teams.
 ## How to Use
 
 1. Share this repo link with new team members.
-2. Have them read `Git-Quick-Guide.md` first.
-3. Follow `Git-Workflow.md` when contributing to shared projects.
-4. Refer to `Git-Troubleshooting.md` when Git errors appear.
+2. Have them read `Git-Terms-Explained.md` first. 
+3. Have them read `Git-Quick-Guide.md` second.
+4. Follow `Git-Workflow.md` when contributing to shared projects.
 
 ---
 

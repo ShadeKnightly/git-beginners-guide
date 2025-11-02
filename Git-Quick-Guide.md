@@ -123,7 +123,7 @@ Test if a branch can merge cleanly without making changes:
 
 # Check if Your Branch Is Up to Date with Main
 ---
-When you’re working on a feature branch (for example, `36-non-user-view`), you might want to check whether it’s behind or ahead of the `main` branch on GitHub.
+When you’re working on a feature branch (for example, `feature/your-branch-name`), you might want to check whether it’s behind or ahead of the `main` branch on GitHub.
 
 Run these commands:
 

@@ -121,6 +121,35 @@ Test if a branch can merge cleanly without making changes:
     git merge --abort
 
 
+# Check if Your Branch Is Up to Date with Main
+---
+When you’re working on a feature branch (for example, `36-non-user-view`), you might want to check whether it’s behind or ahead of the `main` branch on GitHub.
+
+Run these commands:
+
+    git fetch origin
+    git rev-list --left-right --count origin/main...HEAD
+    
+How to Interpret the Output
+    If it prints something like:
+    
+3   0
+
+3 -->Number of commits in origin/main that your branch doesn’t have (you’re behind main).
+0 --> Number of commits in your branch that aren’t in main (you’re ahead of main).
+
+0   0 --> Your branch is completely up to date with origin/main.
+
+*Tip*
+
+You can also compare any other branch by replacing origin/main with the branch name:
+
+    git rev-list --left-right --count origin/another-branch...HEAD
+
+This is especially useful before merging, rebasing, or creating a pull request.
+
+
+
 # Logs and History
 
 View commit history:
@@ -196,36 +225,6 @@ Then you can use commands like:
 | Undo last commit | git reset --soft HEAD~1
 
 ---
-# Real Use Examples
----
----
-## Check if Your Branch Is Up to Date with Main
----
-When you’re working on a feature branch (for example, `36-non-user-view`), you might want to check whether it’s behind or ahead of the `main` branch on GitHub.
-
-Run these commands:
-
-    git fetch origin
-    git rev-list --left-right --count origin/main...HEAD
-    
-How to Interpret the Output
-    If it prints something like:
-    
-3   0
-
-3 -->Number of commits in origin/main that your branch doesn’t have (you’re behind main).
-0 --> Number of commits in your branch that aren’t in main (you’re ahead of main).
-
-0   0 --> Your branch is completely up to date with origin/main.
-
-*Tip*
-
-You can also compare any other branch by replacing origin/main with the branch name:
-
-    git rev-list --left-right --count origin/another-branch...HEAD
-
-This is especially useful before merging, rebasing, or creating a pull request.
-
 
 # Recommended next read:
 Git Workflow for Team Projects

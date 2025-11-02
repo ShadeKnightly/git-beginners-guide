@@ -1,4 +1,4 @@
-# git-workflow-reference
+# git-beginners-guide
 
 A reference guide for developers learning to use Git in team environments.
 

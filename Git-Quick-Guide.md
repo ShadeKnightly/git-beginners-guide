@@ -180,7 +180,7 @@ Then you can use commands like:
     git st
 
 
-## Quick Reference Summary
+# Quick Reference Summary
 
 | Action | Command |
 |    :---:    |    :---:    |

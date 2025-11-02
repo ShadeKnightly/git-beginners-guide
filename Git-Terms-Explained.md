@@ -51,35 +51,33 @@ It’s a shorthand reference to the URL of your GitHub repo.
 
 ## Commit
 
-A commit is a saved snapshot of your changes in time.
-Each commit has a message describing what changed.
+A commit is a saved snapshot of your code in your local repository.
+Commits exist only on your computer until you push them to the remote repo.
+Each commit includes a message describing what and why you changed something.
 
-    git commit -m "Add login form"
-
-Think of it like: hitting “Save” on your progress — but with a note.
-
+    git commit -m "Fix course search button alignment"
+    
 ---
 
 ## Stage (Staging)
 
-When you stage a file, you’re telling Git,
-“Hey, I want this file included in my next commit.”
+When you stage a file, you’re telling Git to included it in your next commit
 
     git add .
-
-Think of it like: putting clothes in a laundry basket —
-you haven’t washed (committed) them yet, just decided which ones to include.
 
 ---
 
 ## Push
 
-Push sends your commits from your local repo → to the remote (GitHub).
+Push sends your commits from your local branch to the same branch on the remote repository (On Github)
+This doesn’t necessarily mean you’re pushing to main — it only pushes to the remote version of whatever branch you’re on.
+Each developer usually works in and pushes their own feature branch, and later merges it into main through a pull request. 
 
+# Push the branch you're currently on
+    git push origin <branch-name>
+
+# Example: pushing main
     git push origin main
-
-Think of it like: uploading your work to the cloud.
-
 ---
 
 ## Pull
@@ -94,10 +92,77 @@ Think of it like: downloading everyone else’s updates.
 
 ## Fetch
 
-Fetch checks for new changes from GitHub but doesn’t apply them yet.
-You can look before you merge.
+CHecks for updates from the remote repository without changing your local files or branches.
 
-Think of it like: reading your mail without opening it yet.
+For example, this command contacts the remote (usually GitHub, called origin) and downloads updates for all branches, not just the one you’re currently on.
+
+    git fetch origin
+    
+--> Fetches new commits, branches, and tags from the entire origin repository.
+--> Updates your remote-tracking branches (like origin/main, origin/dev, etc.).
+
+*It Does not touch your current working files or local branches.*
+
+# Example
+
+Let's say your repo has these branches: 
+main
+feature/login
+feature/courses
+
+and let's say you're currently on the feature/courses branch.
+If someone updates feature/login on Github, and someone else updates feature/courses and you run: 
+
+    git fetch origin
+    
+Git will update your local copy of origin/main with those new commmits that both of those people made (Without merging them into your *local* branch)
+
+# Fetch a specific Branch
+
+You can also fetch just one branch    
+
+So, given the same example, if you instead run 
+    
+    git fetch origin feature/login
+
+This will opnly update your local reference to the feature/login branch (not all branches).
+
+## What is this 'local reference'? 
+
+When you fetch updates for another branch, those updates are downloaded to a *remote-tracking branch*.
+In this example it would be called "origin/feature/login". 
+
+That means:
+
+- origin/feature/login now represents what’s on GitHub.
+
+- Your local feature/login branch (if you have one) still represents your older local copy.
+
+
+## To see or use the updates, 
+
+1.  Switch to that branch and merge its remote version
+   
+   If you have a local branch with the same name, 
+
+        git checkout feature/login       # switch to the local branch
+        git merge origin/feature/login   # update your local branch with the newest commits from GitHub
+
+--> this updates your local feature/login branch with the latest commits from origin/feature/login (the remote copy on Github)
+
+
+2. Pull Directly
+   If you just want to bring the remote updates into your local branch in one step (a fetch + merge combined)
+
+        git checkout feature/login
+        git pull origin feature/login
+
+## Summary
+
+| Goal | Command(s) | What Happens
+Check for updates | git fetch origin feature/login | Downloads new commits only
+Update your local branch manually | git merge origin/feature/login | Combines remote updates into your branch
+Update automatically | git pull origin feature/login | Fetches and merges in one step
 
 ---
 
@@ -241,29 +306,31 @@ Think of it like: submitting your work for review before adding it to the main p
 
 ---
 
-| ## Term | ## Meaning |
-| :---: | :---: |
-Local | Your computer
-Remote | GitHub copy
-Branch | A separate version of the project
-Commit | A saved snapshot of your work
-Push | Upload commits to GitHub
-Pull | Download new commits from GitHub
-Merge |	Combine changes from another branch
-Fetch |	Check for updates without merging
-Checkout | Switch branches or restore files
-HEAD | Your current position in history
-Untracked | New files Git doesn’t track yet
-Clean | Delete untracked files
-Status | Show what’s changed
-Alias | Shortcut for a Git command
-Global | Applies to all repos
-Origin | Name of your GitHub remote
-Main | Primary branch
-Conflict | Two edits on the same line
-Revert | Undo a commit by adding a new one
-Reset | Move back to an earlier commit
-Log | View commit history
+| Term | Meaning | Example |
+| :---: | :--- | :--- |
+| Repository | Project folder tracked by Git with code history | Local repo: `C:\Projects\MyApp` |
+| Local | Your copy of the repo on your computer | `C:\Projects\MyApp` |
+| Remote | Shared version of the repo on GitHub | `https://github.com/your-username/MyApp` |
+| Clone | Copy a remote repo to your computer | `git clone https://github.com/example/project.git` |
+| Branch | A separate version of the project for new work | `git checkout -b new-feature` |
+| Commit | A saved snapshot of your changes | `git commit -m "Add login form"` |
+| Push | Send commits to the remote repo | `git push origin new-feature` |
+| Pull | Get and merge updates from remote | `git pull origin main` |
+| Merge | Combine another branch into yours | `git merge new-feature` |
+| Fetch | Get updates from remote without merging | `git fetch origin` |
+| Checkout | Switch branches or restore files | `git checkout main` |
+| HEAD | Shows your current branch or commit | `HEAD -> main` |
+| Untracked | Files not yet added to Git | Shown in `git status` before `git add` |
+| Clean | No uncommitted or untracked changes | “nothing to commit, working tree clean” |
+| Status | Show what’s changed or staged | `git status` |
+| Alias | Shortcut for a Git command | `git config --global alias.co checkout` |
+| Global | Setting that applies to all repos | `git config --global user.name "Your Name"` |
+| Origin | Default name for your remote repo | `git push origin main` |
+| Main | Primary branch for stable code | `git checkout main` |
+| Conflict | When Git can’t auto-merge edits | Happens during `git merge` |
+| Revert | Undo a commit with a new one | `git revert <commit-id>` |
+| Reset | Move branch to an earlier commit | `git reset --hard <commit-id>` |
+| Log | View commit history | `git log --oneline` |
 
 
 License

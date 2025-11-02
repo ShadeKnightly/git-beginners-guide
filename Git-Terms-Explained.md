@@ -241,7 +241,7 @@ Think of it like: submitting your work for review before adding it to the main p
 
 ---
 
-| ### Term | ### Meaning |
+| ## Term | ## Meaning |
 | :---: | :---: |
 Local | Your computer
 Remote | GitHub copy
